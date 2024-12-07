@@ -1,0 +1,20 @@
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    height: 16vw;
+    width: 20vw;
+    background-color: green;
+    margin: 1em;
+}
+
+#pokemon_cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
