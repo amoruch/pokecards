@@ -3,18 +3,85 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 0;
+    margin: 0;
 }
 
-.card {
-    height: 16vw;
-    width: 20vw;
-    background-color: green;
-    margin: 1em;
+footer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 3em 4em 1em 4em;
+}
+
+search form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 3em;
+}
+
+main {
+    padding: 0em 4em 1em 4em;
 }
 
 #pokemon_cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: flex-end;
+    
+    height: 12em;
+    width: 16em;
+    background-color: rgb(28, 173, 28);
+    margin: 4em 0em 1em 0em;
+    padding: 2em;
+    border-radius: 10%;
+    color: white;
+    font-family: sans-serif;
+    .pokemon {
+        display: flex;
+        justify-content: center;
+    };
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    width: 16em;
+    .name {
+        font-size: 1.4em;
+        margin: 0;
+    }
+    .id {
+        font-size: 1.1em;
+    }
+    .tags {
+        display: flex;
+        align-items: flex-start;
+        button {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-right: 0.5em;
+            width: 5em;
+            height: 2em;
+            border-radius: 1em;
+            border: 0;
+            background-color: red;
+        }
+    }
+}
+
+img {
+    width: 10em;
 }
