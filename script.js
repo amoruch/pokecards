@@ -2,7 +2,7 @@ let pokemon_cards = document.getElementById("pokemon_cards");
 let card_template = document.getElementById("card");
 let tag_template = document.getElementById("tag");
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 12; i++) {
     pokemon_cards.appendChild(card_template.content.cloneNode(true));
     let elem = document.getElementById("0");
     elem.id = i + 1;
