@@ -7,7 +7,7 @@ body {
     margin: 0;
 }
 
-footer {
+header {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -17,7 +17,7 @@ footer {
         font-size: 3em;
         margin: 0;
         color: blue;
-        font-family:Arial, Helvetica, sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
     }
     form {
         margin: 1em 0em 1em 0em;
@@ -59,34 +59,6 @@ footer {
         max-width: 12em;
         height: 2em;
         border-radius: 0.5em;
-    }
-}
-
-search {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    box-shadow: 12px 12px 20px 20px rgba(100, 100, 100, 0.1);
-    margin: 0.5em;
-    padding: 0.5em;
-    border-radius: 0.5em;
-    height: 2em;
-    form {
-        display: flex;
-        flex-direction: row;
-        input {
-            background-color: rgba(100, 100, 100, 0);
-            border: 0;
-            margin: -0.5em;
-            margin-left: -20em;
-            border-radius: 0.5em;
-            height: 3em;
-        }
-        label {
-            display: flex;
-            flex-direction: row;
-            width: 20em;
-        }
     }
 }
 
@@ -152,4 +124,30 @@ main {
 
 img {
     width: 10em;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin: 2em;
+    button {
+        height: 3em;
+        width: 8em;
+        border: 0;
+        border-radius: 1em;
+        background-color: orange;
+        color: blue;
+        font-family: sans-serif;
+    }
+}
+
+button {
+    transition-duration: 0.2s;
+}
+
+button:hover {
+    background-color: yellow;
+}
+button:active {
+    background-color: #f0f000;
 }
