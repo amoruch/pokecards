@@ -53,6 +53,12 @@ header {
                 color: blue;
                 font-family: sans-serif;
             }
+            button:hover {
+                background-color: yellow;
+            }
+            button:active {
+                background-color: #f0f000;
+            }
         }
     }
     select {
@@ -81,7 +87,7 @@ main {
     
     height: 12em;
     width: 16em;
-    background-color: rgb(28, 173, 28);
+    background-color: transparent;
     margin: 4em 0em 1em 0em;
     padding: 2em;
     border-radius: 10%;
@@ -112,12 +118,13 @@ main {
             display: flex;
             flex-direction: row;
             align-items: center;
+            justify-content: center;
             margin-right: 0.5em;
             width: 5em;
             height: 2em;
             border-radius: 1em;
             border: 0;
-            background-color: red;
+            background-color: transparent;
         }
     }
 }
@@ -157,11 +164,4 @@ img {
 
 button {
     transition-duration: 0.2s;
-}
-
-button:hover {
-    background-color: yellow;
-}
-button:active {
-    background-color: #f0f000;
 }
