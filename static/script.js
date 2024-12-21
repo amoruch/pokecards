@@ -81,7 +81,13 @@ async function load_content() {
             p.innerText = types[i];
             type_button.style.backgroundColor = tag_colors[types[i]][0];
         }
-        elem.style.backgroundColor = tag_colors[types[0]][1];
+        if (types.length > 1) {
+            let grad = "linear-gradient(0.375turn, " + tag_colors[types[0]][1] + ", " + tag_colors[types[1]][1] + ")";
+            elem.style.background = grad;
+        }
+        else {
+            elem.style.backgroundColor = tag_colors[types[0]][1];
+        }
     }
 }
 

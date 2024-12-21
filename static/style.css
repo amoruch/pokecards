@@ -7,6 +7,23 @@ body {
     margin: 0;
 }
 
+@keyframes anime_1 {
+    0% {
+      margin-bottom: 0em;
+    }
+    50% {
+      margin-bottom: 0.5em;
+    }
+    100% {
+      margin-bottom: 0em;
+    }
+}
+
+.pokemon:hover img {
+    animation: 0.2s anime_1;
+    animation-timing-function: linear;
+}
+
 header {
     display: flex;
     flex-direction: column;
@@ -87,7 +104,7 @@ main {
     
     height: 12em;
     width: 16em;
-    background-color: transparent;
+    background: transparent;
     margin: 4em 0em 1em 0em;
     padding: 2em;
     border-radius: 10%;
