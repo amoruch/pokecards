@@ -22,10 +22,23 @@
                 <option value="Highest number first">Highest number first</option>
             </select>
         </header>
+        <div class="nav">
+            <p>Page</p>
+            <div>
+                <button onclick="prev_page()"><</button>
+                <p>{{ page }}</p>
+                <button onclick="next_page()">></button>
+            </div>
+        </div>
         <main id="pokemon_cards"></main>
-        <footer>
-            <button onclick="next_page()">Next Page</button>
-        </footer>
+        <div class="nav">
+            <p>Page</p>
+            <div>
+                <button onclick="prev_page()"><</button>
+                <p>{{ page }}</p>
+                <button onclick="next_page()">></button>
+            </div>
+        </div>
     </body>
     <template id="tag">
         <button>

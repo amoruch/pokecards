@@ -3,9 +3,23 @@ from flask import *
 
 app = Flask(__name__)
 
-@app.route('/')
-def main_page():
-    return render_template("index.html")
+def is_page_valid(page):
+    if page < 1 or page > 100:
+        return 0
+    return 1
+
+@app.route('/<page>')
+def main_page(page):
+    try:
+        if is_page_valid(int(page)):
+            return render_template("index.html", page=page)
+        return "Invalid page"
+    except:
+        return "something went wrong"
+
+@app.route('/pokecard/<number>')
+def pokecard(number):
+    return render_template("pokecard.html", number=number)
 
 if __name__ == '__main__':
     #port = int(os.environ.get("PORT", 5000))

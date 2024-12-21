@@ -2,16 +2,20 @@ let pokemon_cards = document.getElementById("pokemon_cards");
 let card_template = document.getElementById("card");
 let tag_template = document.getElementById("tag");
 
-let api = "https://pokeapi.co/api/v2/pokemon";
-let href;
-let from = 0;
-
+let api = "https://pokeapi.co/api/v2/pokemon?offset=";
 let image_url = "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/";
 
-let all_pokemons;
+let page = 1;
+
+function get_page() {
+    let url_string = window.location.href; 
+    let url = new URL(url_string);
+    let a = url.pathname;
+    return parseInt(a.split('/')[1]);
+}
 
 function f(x) {
-    return "0".repeat(3 - x.toString().length) + x;
+    return "0".repeat(Math.max(0, 3 - x.toString().length)) + x;
 }
 
 function load_pokemons() {
@@ -25,36 +29,42 @@ function load_pokemons() {
         tags.appendChild(tag_template.content.cloneNode(true));
         tags.appendChild(tag_template.content.cloneNode(true));
     }
-
-    let url_string = window.location.href; 
-    let url = new URL(url_string);
-    let c = url.searchParams.get("page");
-    if (c == null) {
-        c = 1;
-    }
-    c = parseInt(c) + 1;
-    console.log(c)
-    href = url.origin + url.pathname + "?page=" + c;
 }
 
 async function load_images() {
-    let x = await fetch(api);
+    let x = await fetch(api + ((page - 1) * 20));
     let y = await x.json();
-    all_pokemons = y.results;
+    let all_pokemons = y.results;
     api = y.next;
     for (let i = 0; i < all_pokemons.length; i++) {
         let elem = document.getElementById(i + 1);
         let aboba = all_pokemons[i].name;
 
         elem.getElementsByClassName("name")[0].innerText = aboba;
-        elem.getElementsByTagName("img")[0].src = image_url + f(from + i + 1) + ".png";
+        elem.getElementsByTagName("img")[0].src = image_url + f((page - 1) * 20 + i + 1) + ".png";
     }
 }
 
-function next_page() {
+function prev_page() {
+    if (page < 2) {
+        return;
+    }
+    let url_string = window.location.href; 
+    let url = new URL(url_string);
+    let href = url.origin + '/' + (get_page() - 1);
     location.href=href;
-    //load_images();
 }
 
+function next_page() {
+    if (page > 100) {
+        return;
+    }
+    let url_string = window.location.href; 
+    let url = new URL(url_string);
+    let href = url.origin + '/' + (get_page() + 1);
+    location.href=href;
+}
+
+page = get_page()
 load_pokemons();
 load_images();
