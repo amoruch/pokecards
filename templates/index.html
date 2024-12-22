@@ -25,18 +25,18 @@
         <div class="nav">
             <p>Page</p>
             <div>
-                <button onclick="prev_page()"><</button>
+                <button class="prev_but" onclick="prev_page()"><</button>
                 <p>{{ page }}</p>
-                <button onclick="next_page()">></button>
+                <button class="next_but" onclick="next_page()">></button>
             </div>
         </div>
         <main id="pokemon_cards"></main>
         <div class="nav">
             <p>Page</p>
             <div>
-                <button onclick="prev_page()"><</button>
+                <button class="prev_but" onclick="prev_page()"><</button>
                 <p>{{ page }}</p>
-                <button onclick="next_page()">></button>
+                <button class="next_but" onclick="next_page()">></button>
             </div>
         </div>
     </body>
@@ -47,7 +47,7 @@
     </template>
     <template id="card">
         <div class="card" id="0">
-            <div class="pokemon"><img src="" alt="pokemon"></div>
+            <a href="/" class="pokemon"><img src="" alt="pokemon"></a>
             <div class="description">
                 <p class="name"></p>
                 <p class="id"></p>

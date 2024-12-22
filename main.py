@@ -4,7 +4,7 @@ from flask import *
 app = Flask(__name__)
 
 def is_page_valid(page):
-    if page < 1 or page > 100:
+    if page < 1 or page > 66:
         return 0
     return 1
 
@@ -17,7 +17,7 @@ def main_page(page):
     except:
         return "something went wrong"
 
-@app.route('/pokecard/<number>')
+@app.route('/pokemon/<number>')
 def pokecard(number):
     return render_template("pokecard.html", number=number)
 

@@ -51,28 +51,51 @@ async function get_pokemon_types(name) {
     return types;
 }
 
-async function load_pokemons() {
-    for (let i = 0; i < 20; i++) {
+async function load_content() {
+    // disable buttons
+    let buttons = [];
+    if (page == 1){
+        buttons = document.getElementsByClassName("prev_but");
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].disabled = true;
+        }
+    }
+    if (page == 66) {
+        buttons = document.getElementsByClassName("next_but");
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].disabled = true;
+        }
+    }
+
+    // load pokemons' info
+    let x = await fetch(api + ((page - 1) * 20));
+    let y = await x.json();
+    let all_pokemons = y.results;
+    
+    // load pokemons' cards
+    for (let i = 0; i < all_pokemons.length; i++) {
         pokemon_cards.appendChild(card_template.content.cloneNode(true));
 
         let elem = document.getElementById("0");
         elem.id = i + 1;
     }
-}
 
-async function load_content() {
-    let x = await fetch(api + ((page - 1) * 20));
-    let y = await x.json();
-    let all_pokemons = y.results;
+    // load pokemons' img and description
     for (let i = 0; i < all_pokemons.length; i++) {
         let elem = document.getElementById(i + 1);
         let name = all_pokemons[i].name;
+        let id = (page - 1) * 20 + i + 1;
 
         elem.getElementsByClassName("name")[0].innerText = name;
-        elem.getElementsByClassName("id")[0].innerText = "#" + f((page - 1) * 20 + i + 1);
-        elem.getElementsByTagName("img")[0].src = image_url + f((page - 1) * 20 + i + 1) + ".png";
-
-        let types = await get_pokemon_types(name);
+        elem.getElementsByTagName("a")[0].href = "/pokemon/" + f(id);
+        elem.getElementsByClassName("id")[0].innerText = "#" + f(id);
+        elem.getElementsByTagName("img")[0].src = image_url + f(id) + ".png";
+        let types = [];
+        try {
+            types = await get_pokemon_types(name);
+        } catch(e) {
+            types = []
+        }
         let tags = elem.getElementsByClassName("tags")[0];
         for (let i = 0; i < types.length; i++) {
             tags.appendChild(tag_template.content.cloneNode(true));
@@ -102,7 +125,7 @@ function prev_page() {
 }
 
 function next_page() {
-    if (page > 100) {
+    if (page > 65) {
         return;
     }
     let url_string = window.location.href; 
@@ -112,5 +135,4 @@ function next_page() {
 }
 
 page = get_page()
-load_pokemons();
 load_content();

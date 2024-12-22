@@ -176,6 +176,10 @@ img {
         button:active {
             background-color: #f0f000;
         }
+        button:disabled {
+            background-color: gray;
+            color: black;
+        }
     }
 }
 
