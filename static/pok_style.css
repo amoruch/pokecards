@@ -5,30 +5,58 @@ body {
     padding: 2em 2em 0 2em;
     margin: 0;
     background-color: lightgreen;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 header {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    min-width: 30em;
+    color: white;
     .nav {
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-    }
-    .pokemon {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        min-width: 25em;
+        max-width: 30em;
         img {
-            width: 20em;
+            width: 3em;
+        }
+        .name {
+            font-size: 3em;
+            margin: 0;
+            font-weight: bold;
+        }
+        .id {
+            font-size: 1.5em;
         }
     }
 }
 
+.pokemon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 40em;
+    min-width: 30em;
+    margin-top: -20em;
+    img {
+        width: 20em;
+    }
+    a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        font-size: 3em;
+    }
+}
+
 main {
+    margin-top: 16em;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -40,7 +68,14 @@ main {
     max-width: 40em;
     background-color: white;
     .type {
+        display: flex;
+        justify-content: center;
         background-color: lightgreen;
+        color: white;
+        border-radius: 2em;
+        padding: 0.6em;
+        font-weight: bold;
+        min-width: 4em;
     }
     .aboba {
         font-weight: bold;
