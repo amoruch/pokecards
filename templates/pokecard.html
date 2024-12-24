@@ -10,7 +10,7 @@
         <header>
             <div class="nav">
                 <a href="/"><img src="/static/arrow_left.png" alt="back"></a>
-                <p class="name">bulbasaur</p>
+                <p class="name">Bulbasaur</p>
                 <p class="id">#001</p>
             </div>
         </header>
@@ -20,10 +20,15 @@
                 <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/001.png" alt="pokemon">
                 <a href="/">></a>
             </div>
-            <div class="type">
-                Grass
+            <div class="types">
+                <div class="type">
+                    Grass
+                </div>
+                <div class="type">
+                    Grass
+                </div>
             </div>
-            <p class="aboba">about</p>
+            <p class="aboba">About</p>
             <div class="about">
                 <div class="weight">
                     <p>numbers</p>
@@ -42,44 +47,57 @@
             </div>
             <p class="description">description</p>
             <div class="stats">
-                <p>Base Stats</p>
-                <div class="HP">
-                    <p>HP</p>
-                    <hr>
-                    <p>number</p>
+                <p class="statsp">Base Stats</p>
+                <div class="stat" id="hp">
+                    <div>
+                        <p>HP</p>
+                        <hr>
+                        <p>number</p>
+                    </div>
                     <progress value="70" max="100"></progress>
                 </div>
-                <div class="ATK">
-                    <p>ATK</p>
-                    <hr>
-                    <p>number</p>
+                <div class="stat" id="attack">
+                    <div>
+                        <p>ATK</p>
+                        <hr>
+                        <p>number</p>
+                    </div>
                     <progress value="70" max="100"></progress>
                 </div>
-                <div class="DEF">
-                    <p>DEF</p>
-                    <hr>
-                    <p>number</p>
+                <div class="stat" id="defense">
+                    <div>
+                        <p>DEF</p>
+                        <hr>
+                        <p>number</p>
+                    </div>
                     <progress value="70" max="100"></progress>
                 </div>
-                <div class="SATK">
-                    <p>SATK</p>
-                    <hr>
-                    <p>number</p>
+                <div class="stat" id="special-attack">
+                    <div>
+                        <p>SATK</p>
+                        <hr>
+                        <p>number</p>
+                    </div>
                     <progress value="70" max="100"></progress>
                 </div>
-                <div class="SDEF">
-                    <p>SDEF</p>
-                    <hr>
-                    <p>number</p>
+                <div class="stat" id="special-defense">
+                    <div>
+                        <p>SDEF</p>
+                        <hr>
+                        <p>number</p>
+                    </div>
                     <progress value="70" max="100"></progress>
                 </div>
-                <div class="SPD">
-                    <p>SPD</p>
-                    <hr>
-                    <p>number</p>
+                <div class="stat" id="speed">
+                    <div>
+                        <p>SPD</p>
+                        <hr>
+                        <p>number</p>
+                    </div>
                     <progress value="70" max="100"></progress>
                 </div>
             </div>
         </main>
     </body>
+    <script src="/static/pok_script.js"></script>
 </html>

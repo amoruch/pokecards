@@ -67,18 +67,24 @@ main {
     border-radius: 1em;
     max-width: 40em;
     background-color: white;
-    .type {
+    .types {
         display: flex;
-        justify-content: center;
-        background-color: lightgreen;
-        color: white;
-        border-radius: 2em;
-        padding: 0.6em;
-        font-weight: bold;
-        min-width: 4em;
+        flex-direction: row;
+        .type {
+            display: flex;
+            justify-content: center;
+            background-color: lightgreen;
+            color: white;
+            border-radius: 2em;
+            padding: 0.6em;
+            margin: 0.5em;
+            font-weight: bold;
+            min-width: 4em;
+        }
     }
     .aboba {
         font-weight: bold;
+        font-size: 1.5em;
     }
     .about {
         width: 100%;
@@ -106,18 +112,32 @@ main {
     align-items: center;
     width: 100%;
     padding: 2em;
-    div {
+    .statsp {
+        font-weight: bold;
+        font-size: 1.5em;
+    }
+    .stat {
         display: flex;
         flex-direction: row;
         align-items: center;
         width: 100%;
-        justify-content: space-around;
+        justify-content: space-between;
+        div {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            p {
+                display: flex;
+                justify-content: right;
+                margin: 1em;
+                width: 1em;
+            }
+        }
         hr {
-            height: 1em;
-            margin: 0;
+            height: 1.5em;
         }
         progress {
-            width: 30em;
+            width: 100%;
         }
     }
 }
