@@ -24,6 +24,7 @@ header {
         max-width: 30em;
         img {
             width: 3em;
+            cursor: pointer;
         }
         .name {
             font-size: 3em;
@@ -52,6 +53,7 @@ header {
         color: white;
         font-weight: bold;
         font-size: 3em;
+        cursor: pointer;
     }
 }
 

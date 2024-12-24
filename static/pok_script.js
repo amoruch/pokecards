@@ -71,7 +71,7 @@ async function load_content() {
         document.getElementsByClassName("type")[i].style = "background-color: " + tag_colors[types[i].type.name][0];
     }
 
-    document.getElementsByClassName("weight")[0].getElementsByTagName("p")[0].innerText = weight + " kg";
+    document.getElementsByClassName("weight")[0].getElementsByTagName("p")[0].innerText = weight / 10 + " kg";
     document.getElementsByClassName("height")[0].getElementsByTagName("p")[0].innerText = height / 10 + " m";
     document.getElementsByClassName("move")[0].getElementsByTagName("p")[0].innerText = abilities[0].ability.name
 
@@ -84,24 +84,32 @@ async function load_content() {
     }
 }
 
-function prev_page() {
-    if (page < 2) {
+function prev() {
+    if (id < 2) {
         return;
     }
     let url_string = window.location.href; 
     let url = new URL(url_string);
-    let href = url.origin + '/' + (get_page() - 1);
+    let href = url.origin + '/pokemon/' + (id - 1);
     location.href=href;
 }
 
-function next_page() {
-    if (page > 65) {
+function next() {
+    if (id > 1300) {
         return;
     }
     let url_string = window.location.href; 
     let url = new URL(url_string);
-    let href = url.origin + '/' + (get_page() + 1);
+    let href = url.origin + '/pokemon/' + (id + 1);
     location.href=href;
+}
+
+function back() {
+    let url_string = window.location.href; 
+    let url = new URL(url_string);
+    let href = url.origin + "/" + (parseInt((id - 1) / 20) + 1);
+    location.href=href;
+    return;
 }
 
 id = get_id();
