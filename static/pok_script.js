@@ -5,7 +5,7 @@ let tag_template = document.getElementById("tag");
 let api = "https://pokeapi.co/api/v2/pokemon/";
 let image_url = "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/";
 
-let id = 2;
+let value = "";
 
 let tag_colors = {
     "grass": ["green", "#00AA00"],
@@ -29,11 +29,11 @@ let tag_colors = {
     "dark": ["#EA899A", "#B32821"]
 };
 
-function get_id() {
+function get_value() {
     let url_string = window.location.href; 
     let url = new URL(url_string);
     let a = url.pathname.split('/');
-    return parseInt(a[a.length - 1]);
+    return a[a.length - 1];
 }
 
 function f(x) {
@@ -44,21 +44,10 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
 
-async function get_pokemon_data(a) {
-    let x = await fetch(api + a);
+async function load_content() {
+    let x = await fetch(api + value);
     let y = await x.json();
     const { name, id, types, weight, height, abilities, stats } = y;
-    //x = await fetch("https://pokeapi.co/api/v2/pokemon-species/" + a);
-    //y = await x.json();
-    return { name, id, types, weight, height, abilities, stats };
-}
-
-async function load_content() {
-    let x = await fetch(api + id);
-    let y = await x.json();
-    const { name, types, weight, height, abilities, stats } = y;
-    //x = await fetch("https://pokeapi.co/api/v2/pokemon-species/" + a);
-    //y = await x.json();
 
     document.getElementsByTagName("body")[0].style = "background-color: " + tag_colors[types[0].type.name][1];
 
@@ -85,6 +74,8 @@ async function load_content() {
 }
 
 function prev() {
+    let id = document.getElementsByClassName("id")[0].innerText;
+    id = parseInt(id.replace("#", ""));
     if (id < 2) {
         return;
     }
@@ -95,6 +86,8 @@ function prev() {
 }
 
 function next() {
+    let id = document.getElementsByClassName("id")[0].innerText;
+    id = parseInt(id.replace("#", ""));
     if (id > 1300) {
         return;
     }
@@ -105,6 +98,8 @@ function next() {
 }
 
 function back() {
+    let id = document.getElementsByClassName("id")[0].innerText;
+    id = parseInt(id.replace("#", ""));
     let url_string = window.location.href; 
     let url = new URL(url_string);
     let href = url.origin + "/" + (parseInt((id - 1) / 20) + 1);
@@ -112,5 +107,5 @@ function back() {
     return;
 }
 
-id = get_id();
+value = get_value();
 load_content();

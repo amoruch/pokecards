@@ -9,18 +9,14 @@
     <body>
         <header>
             <p>Pokedex</p>
-            <form>
+            <div class="form">
                 <div>
                     <img src="static/blue_search_icon.png" alt="search">
                     <input type="search" id="uname" name="search"
-                        placeholder="Pokemon name, number or type"/>
-                    <button>Search</button>
+                        placeholder="Pokemon name or number"/>
+                    <button onclick="search()">Search</button>
                 </div>
-              </form>
-            <select id="sort_type">
-                <option value="Lowest number first">Lowest number first</option>
-                <option value="Highest number first">Highest number first</option>
-            </select>
+            </div>
         </header>
         <div class="nav">
             <p>Page</p>

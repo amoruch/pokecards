@@ -2,6 +2,8 @@ let pokemon_cards = document.getElementById("pokemon_cards");
 let card_template = document.getElementById("card");
 let tag_template = document.getElementById("tag");
 
+let input = document.querySelector("#uname");
+
 let api = "https://pokeapi.co/api/v2/pokemon?offset=";
 let image_url = "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/";
 
@@ -131,6 +133,13 @@ function next_page() {
     let url_string = window.location.href; 
     let url = new URL(url_string);
     let href = url.origin + '/' + (get_page() + 1);
+    location.href=href;
+}
+
+function search() {
+    let url_string = window.location.href; 
+    let url = new URL(url_string);
+    let href = url.origin + '/pokemon/' + input.value;
     location.href=href;
 }
 
